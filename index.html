@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>DoIt! X</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="asset/favicon.svg">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/customDialogs.js"></script>
+    <script src="blockly-lib/blockly_compressed.js"></script>
+    <script src="blockly-lib/blocks_compressed.js"></script>
+    <script src="blockly-lib/python_compressed.js"></script>
+    <script src="blockly-lib/msg/zh-hans.js"></script>
+</head>
+<body>
+    <div id="topBar">DoIt! X</div>
+    <div id="mainContainer">
+        <div id="blocklyDiv"></div>
+        <div id="codeOutput"></div>
+    </div>
+    
+    <xml id="toolbox">
+        <category name="控制" categorystyle="logic_category">
+            <block type="controls_repeat_ext"></block>
+            <block type="controls_repeat"></block>
+            <block type="controls_whileUntil"></block>
+            <block type="controls_for"></block>
+            <block type="controls_forEach"></block>
+            <block type="controls_flow_statements"></block>
+            <block type="logic_compare"></block>
+            <block type="logic_operation"></block>
+            <block type="logic_negate"></block>
+            <block type="logic_boolean"></block>
+            <block type="logic_ternary"></block>
+            <block type="controls_if"></block>
+            <block type="controls_ifelse"></block>
+        </category>
+        <category name="变量" custom="VARIABLE" categorystyle="variable_category"></category>
+        <category name="自制积木"  custom="PROCEDURE" categorystyle="procedure_category" data-category="自制积木"></category>
+    </xml>
+    
+    <script src="script/main.js"></script>
+</body>
