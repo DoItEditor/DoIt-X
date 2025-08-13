@@ -1,0 +1,36 @@
+/* 确保覆盖所有相关的圆角设置 */
+.blocklyFlyout,
+.blocklyFlyoutBackground,
+.blocklyToolbox,
+.blocklyScrollbarHandle {
+    border-radius: 0 !important;
+    rx: 0 !important;
+    ry: 0 !important;
+}
+
+/* 针对SVG元素的特殊处理 */
+svg.blocklyFlyoutBackground {
+    rx: 0 !important;
+    ry: 0 !important;
+}
+
+.blocklyFlyout .blocklyScrollbarHandle {
+    rx: 8px !important;
+    ry: 8px !important;
+    fill: #666 !important;
+}
+
+.blocklyFlyout .blocklyScrollbarHandle:hover {
+    fill: #333 !important;
+}
+
+/* 修改滚动条样式 */
+.blocklyScrollbarHandle {
+    rx: 8px !important;
+    ry: 8px !important;
+    fill: #666 !important;
+}
+
+.blocklyScrollbarHandle:hover {
+    fill: #333 !important;
+}

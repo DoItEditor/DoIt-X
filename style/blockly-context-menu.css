@@ -1,0 +1,12 @@
+/* 减小右键菜单项的高度和内边距 */
+.blocklyWidgetDiv .blocklyMenu .blocklyMenuItem {
+    padding: 3px 15px; /* 减小上下内边距，从6px改为3px */
+    min-height: 20px; /* 设置最小高度 */
+    font-size: 12px; /* 可选：稍微减小字体大小使菜单更紧凑 */
+}
+
+/* 确保分隔线也适应紧凑样式 */
+.blocklyWidgetDiv .blocklyMenu .blocklyMenuSeparator {
+    margin: 3px 0; /* 减小分隔线上下间距 */
+    height: 1px; /* 保持分隔线高度 */
+}

@@ -1,0 +1,29 @@
+.top-bar-button {
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0 10px;
+    cursor: pointer;
+    display: flex; /* 启用flex布局 */
+    align-items: center; /* 垂直居中 */
+    transition: all 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 按钮图标样式 */
+.button-icon {
+    height: 16px;
+    width: auto;
+    margin-right: 5px;
+}
+
+/* 按钮文本样式 */
+.button-text {
+    font-size: 14px;
+}
+
+/* 悬停效果 - 改变容器大小 */
+.top-bar-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05); /* 放大容器 */
+}

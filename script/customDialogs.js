@@ -1,64 +1,4 @@
-// 自定义对话框样式
-const dialogStyles = `
-  .custom-dialog-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  .custom-dialog {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 300px;
-    max-width: 90%;
-  }
-  .custom-dialog-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  .custom-dialog-message {
-    margin-bottom: 20px;
-  }
-  .custom-dialog-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-  }
-  .custom-dialog-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  .custom-dialog-button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .custom-dialog-button-ok {
-    background-color: #4CAF50;
-    color: white;
-  }
-  .custom-dialog-button-cancel {
-    background-color: #f44336;
-    color: white;
-  }
-`;
-
-// 添加样式到页面
-const styleElement = document.createElement('style');
-styleElement.textContent = dialogStyles;
-document.head.appendChild(styleElement);
+// 移除内联样式定义，改为使用外部CSS文件
 
 // 自定义alert函数 - 符合Blockly.dialog接口
 function customAlert(message, callback) {
@@ -89,8 +29,11 @@ function customAlert(message, callback) {
   okButton.className = 'custom-dialog-button custom-dialog-button-ok';
   okButton.textContent = Blockly.Msg.OK || '确定';
   okButton.addEventListener('click', () => {
-    document.body.removeChild(overlay);
-    if (callback) callback();
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      document.body.removeChild(overlay);
+      if (callback) callback();
+    }, 300);
   });
 
   // 组装对话框
@@ -100,6 +43,11 @@ function customAlert(message, callback) {
   dialog.appendChild(buttons);
   overlay.appendChild(dialog);
   document.body.appendChild(overlay);
+
+  // 触发动画
+  setTimeout(() => {
+    overlay.classList.add('active');
+  }, 10);
 }
 
 // 自定义confirm函数 - 符合Blockly.dialog接口
@@ -131,8 +79,11 @@ function customConfirm(message, callback) {
   cancelButton.className = 'custom-dialog-button custom-dialog-button-cancel';
   cancelButton.textContent = Blockly.Msg.CANCEL || '取消';
   cancelButton.addEventListener('click', () => {
-    document.body.removeChild(overlay);
-    callback(false);
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      document.body.removeChild(overlay);
+      callback(false);
+    }, 300);
   });
 
   // 创建确定按钮
@@ -140,8 +91,11 @@ function customConfirm(message, callback) {
   okButton.className = 'custom-dialog-button custom-dialog-button-ok';
   okButton.textContent = Blockly.Msg.OK || '确定';
   okButton.addEventListener('click', () => {
-    document.body.removeChild(overlay);
-    callback(true);
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      document.body.removeChild(overlay);
+      callback(true);
+    }, 300);
   });
 
   // 组装对话框
@@ -152,6 +106,11 @@ function customConfirm(message, callback) {
   dialog.appendChild(buttons);
   overlay.appendChild(dialog);
   document.body.appendChild(overlay);
+
+  // 触发动画
+  setTimeout(() => {
+    overlay.classList.add('active');
+  }, 10);
 }
 
 // 自定义prompt函数 - 符合Blockly.dialog接口
@@ -189,8 +148,11 @@ function customPrompt(message, defaultValue, callback) {
   cancelButton.className = 'custom-dialog-button custom-dialog-button-cancel';
   cancelButton.textContent = Blockly.Msg.CANCEL || '取消';
   cancelButton.addEventListener('click', () => {
-    document.body.removeChild(overlay);
-    callback(null);
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      document.body.removeChild(overlay);
+      callback(null);
+    }, 300);
   });
 
   // 创建确定按钮
@@ -198,8 +160,11 @@ function customPrompt(message, defaultValue, callback) {
   okButton.className = 'custom-dialog-button custom-dialog-button-ok';
   okButton.textContent = Blockly.Msg.OK || '确定';
   okButton.addEventListener('click', () => {
-    document.body.removeChild(overlay);
-    callback(input.value);
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      document.body.removeChild(overlay);
+      callback(input.value);
+    }, 300);
   });
 
   // 组装对话框
@@ -211,6 +176,11 @@ function customPrompt(message, defaultValue, callback) {
   dialog.appendChild(buttons);
   overlay.appendChild(dialog);
   document.body.appendChild(overlay);
+
+  // 触发动画
+  setTimeout(() => {
+    overlay.classList.add('active');
+  }, 10);
 
   // 自动聚焦输入框
   input.focus();
