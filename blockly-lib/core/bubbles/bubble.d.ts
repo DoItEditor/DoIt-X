@@ -70,8 +70,8 @@ export declare abstract class Bubble implements IBubble, ISelectable {
      *     when automatically positioning.
      * @param overriddenFocusableElement An optional replacement to the focusable
      *     element that's represented by this bubble (as a focusable node). This
-     *     element will have its ID and tabindex overwritten. If not provided, the
-     *     focusable element of this node will default to the bubble's SVG root.
+     *     element will have its ID overwritten. If not provided, the focusable
+     *     element of this node will default to the bubble's SVG root.
      */
     constructor(workspace: WorkspaceSvg, anchor: Coordinate, ownerRect?: Rect | undefined, overriddenFocusableElement?: SVGElement | HTMLElement);
     /** Dispose of this bubble. */

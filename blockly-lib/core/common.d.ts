@@ -148,6 +148,14 @@ export declare function createBlockDefinitionsFromJsonArray(jsonArray: any[]): {
 export declare function defineBlocks(blocks: {
     [key: string]: BlockDefinition;
 }): void;
+/**
+ * Handle a key-down on SVG drawing surface. Does nothing if the main workspace
+ * is not visible.
+ *
+ * @internal
+ * @param e Key down event.
+ */
+export declare function globalShortcutHandler(e: KeyboardEvent): void;
 export declare const TEST_ONLY: {
     defineBlocksWithJsonArrayInternal: typeof defineBlocksWithJsonArrayInternal;
 };

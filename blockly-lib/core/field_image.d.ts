@@ -93,6 +93,12 @@ export declare class FieldImage extends Field<string> {
      */
     setAlt(alt: string | null): void;
     /**
+     * Check whether this field should be clickable.
+     *
+     * @returns Whether this field is clickable.
+     */
+    isClickable(): boolean;
+    /**
      * If field click is called, and click handler defined,
      * call the handler.
      */

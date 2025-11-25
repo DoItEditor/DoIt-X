@@ -72,5 +72,11 @@ export declare abstract class Icon implements IIcon {
     onNodeBlur(): void;
     /** See IFocusableNode.canBeFocused. */
     canBeFocused(): boolean;
+    /**
+     * Returns the block that this icon is attached to.
+     *
+     * @returns The block this icon is attached to.
+     */
+    getSourceBlock(): Block;
 }
 //# sourceMappingURL=icon.d.ts.map

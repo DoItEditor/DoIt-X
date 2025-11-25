@@ -4,8 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import { BlockSvg } from '../block_svg.js';
+import type { Field } from '../field.js';
+import type { Icon } from '../icons/icon.js';
 import type { IFocusableNode } from '../interfaces/i_focusable_node.js';
 import type { INavigationPolicy } from '../interfaces/i_navigation_policy.js';
+import { RenderedConnection } from '../rendered_connection.js';
 /**
  * Set of rules controlling keyboard navigation from a block.
  */
@@ -29,7 +32,7 @@ export declare class BlockNavigationPolicy implements INavigationPolicy<BlockSvg
      * Returns the next peer node of the given block.
      *
      * @param current The block to find the following element of.
-     * @returns The first block of the next stack if the given block is a terminal
+     * @returns The first node of the next input/stack if the given block is a terminal
      *     block, or its next connection.
      */
     getNextSibling(current: BlockSvg): IFocusableNode | null;
@@ -56,4 +59,25 @@ export declare class BlockNavigationPolicy implements INavigationPolicy<BlockSvg
      */
     isApplicable(current: any): current is BlockSvg;
 }
+/**
+ * Returns the next/previous stack relative to the given block's stack.
+ *
+ * @param current The block whose stack will be navigated relative to.
+ * @param delta The difference in index to navigate; positive values navigate
+ *     to the nth next stack, while negative values navigate to the nth previous
+ *     stack.
+ * @returns The first block in the stack offset by `delta` relative to the
+ *     current block's stack, or the last block in the stack offset by `delta`
+ *     relative to the current block's stack when navigating backwards.
+ */
+export declare function navigateStacks(current: BlockSvg, delta: number): BlockSvg | null;
+/**
+ * Returns the next navigable item relative to the provided block child.
+ *
+ * @param current The navigable block child item to navigate relative to.
+ * @param delta The difference in index to navigate; positive values navigate
+ *     forward by n, while negative values navigate backwards by n.
+ * @returns The navigable block child offset by `delta` relative to `current`.
+ */
+export declare function navigateBlock(current: Icon | Field | RenderedConnection | BlockSvg, delta: number): IFocusableNode | null;
 //# sourceMappingURL=block_navigation_policy.d.ts.map

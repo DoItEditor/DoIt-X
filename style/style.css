@@ -4,6 +4,14 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'MiSans', sans-serif;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(../asset/MiSans.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* 定义全局菜单从上向下的动画 */

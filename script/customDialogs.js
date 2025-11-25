@@ -10,11 +10,6 @@ function customAlert(message, callback) {
   const dialog = document.createElement('div');
   dialog.className = 'custom-dialog';
 
-  // 创建标题
-  const title = document.createElement('div');
-  title.className = 'custom-dialog-title';
-  title.textContent = Blockly.Msg.ALERT_TITLE || '提示';
-
   // 创建消息
   const messageElement = document.createElement('div');
   messageElement.className = 'custom-dialog-message';
@@ -27,7 +22,7 @@ function customAlert(message, callback) {
   // 创建确定按钮
   const okButton = document.createElement('button');
   okButton.className = 'custom-dialog-button custom-dialog-button-ok';
-  okButton.textContent = Blockly.Msg.OK || '确定';
+  okButton.textContent = Blockly.Msg['DIALOG_OK'] || '确定';
   okButton.addEventListener('click', () => {
     overlay.classList.remove('active');
     setTimeout(() => {
@@ -38,7 +33,6 @@ function customAlert(message, callback) {
 
   // 组装对话框
   buttons.appendChild(okButton);
-  dialog.appendChild(title);
   dialog.appendChild(messageElement);
   dialog.appendChild(buttons);
   overlay.appendChild(dialog);
@@ -60,11 +54,6 @@ function customConfirm(message, callback) {
   const dialog = document.createElement('div');
   dialog.className = 'custom-dialog';
 
-  // 创建标题
-  const title = document.createElement('div');
-  title.className = 'custom-dialog-title';
-  title.textContent = Blockly.Msg.CONFIRM_TITLE || '确认';
-
   // 创建消息
   const messageElement = document.createElement('div');
   messageElement.className = 'custom-dialog-message';
@@ -77,7 +66,7 @@ function customConfirm(message, callback) {
   // 创建取消按钮
   const cancelButton = document.createElement('button');
   cancelButton.className = 'custom-dialog-button custom-dialog-button-cancel';
-  cancelButton.textContent = Blockly.Msg.CANCEL || '取消';
+  cancelButton.textContent = Blockly.Msg['DIALOG_CANCEL'] || '取消';
   cancelButton.addEventListener('click', () => {
     overlay.classList.remove('active');
     setTimeout(() => {
@@ -89,7 +78,7 @@ function customConfirm(message, callback) {
   // 创建确定按钮
   const okButton = document.createElement('button');
   okButton.className = 'custom-dialog-button custom-dialog-button-ok';
-  okButton.textContent = Blockly.Msg.OK || '确定';
+  okButton.textContent = Blockly.Msg['DIALOG_OK'] || '确定';
   okButton.addEventListener('click', () => {
     overlay.classList.remove('active');
     setTimeout(() => {
@@ -101,7 +90,6 @@ function customConfirm(message, callback) {
   // 组装对话框
   buttons.appendChild(cancelButton);
   buttons.appendChild(okButton);
-  dialog.appendChild(title);
   dialog.appendChild(messageElement);
   dialog.appendChild(buttons);
   overlay.appendChild(dialog);
@@ -123,11 +111,6 @@ function customPrompt(message, defaultValue, callback) {
   const dialog = document.createElement('div');
   dialog.className = 'custom-dialog';
 
-  // 创建标题
-  const title = document.createElement('div');
-  title.className = 'custom-dialog-title';
-  title.textContent = Blockly.Msg.PROMPT_TITLE || '输入';
-
   // 创建消息
   const messageElement = document.createElement('div');
   messageElement.className = 'custom-dialog-message';
@@ -146,7 +129,7 @@ function customPrompt(message, defaultValue, callback) {
   // 创建取消按钮
   const cancelButton = document.createElement('button');
   cancelButton.className = 'custom-dialog-button custom-dialog-button-cancel';
-  cancelButton.textContent = Blockly.Msg.CANCEL || '取消';
+  cancelButton.textContent = Blockly.Msg['DIALOG_CANCEL'] || '取消';
   cancelButton.addEventListener('click', () => {
     overlay.classList.remove('active');
     setTimeout(() => {
@@ -158,7 +141,7 @@ function customPrompt(message, defaultValue, callback) {
   // 创建确定按钮
   const okButton = document.createElement('button');
   okButton.className = 'custom-dialog-button custom-dialog-button-ok';
-  okButton.textContent = Blockly.Msg.OK || '确定';
+  okButton.textContent = Blockly.Msg['DIALOG_OK'] || '确定';
   okButton.addEventListener('click', () => {
     overlay.classList.remove('active');
     setTimeout(() => {
@@ -170,7 +153,6 @@ function customPrompt(message, defaultValue, callback) {
   // 组装对话框
   buttons.appendChild(cancelButton);
   buttons.appendChild(okButton);
-  dialog.appendChild(title);
   dialog.appendChild(messageElement);
   dialog.appendChild(input);
   dialog.appendChild(buttons);

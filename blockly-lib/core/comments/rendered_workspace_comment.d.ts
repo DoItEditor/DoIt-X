@@ -9,6 +9,7 @@ import { IContextMenu } from '../interfaces/i_contextmenu.js';
 import { ICopyable } from '../interfaces/i_copyable.js';
 import { IDeletable } from '../interfaces/i_deletable.js';
 import { IDraggable } from '../interfaces/i_draggable.js';
+import { IFocusableNode } from '../interfaces/i_focusable_node.js';
 import type { IFocusableTree } from '../interfaces/i_focusable_tree.js';
 import { IRenderedElement } from '../interfaces/i_rendered_element.js';
 import { ISelectable } from '../interfaces/i_selectable.js';
@@ -17,7 +18,7 @@ import { Rect } from '../utils/rect.js';
 import { Size } from '../utils/size.js';
 import { WorkspaceSvg } from '../workspace_svg.js';
 import { WorkspaceComment } from './workspace_comment.js';
-export declare class RenderedWorkspaceComment extends WorkspaceComment implements IBoundedElement, IRenderedElement, IDraggable, ISelectable, IDeletable, ICopyable<WorkspaceCommentCopyData>, IContextMenu {
+export declare class RenderedWorkspaceComment extends WorkspaceComment implements IBoundedElement, IRenderedElement, IDraggable, ISelectable, IDeletable, ICopyable<WorkspaceCommentCopyData>, IContextMenu, IFocusableNode {
     /** The class encompassing the svg elements making up the workspace comment. */
     private view;
     readonly workspace: WorkspaceSvg;

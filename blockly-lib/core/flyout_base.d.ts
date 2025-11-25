@@ -401,9 +401,17 @@ export declare abstract class Flyout extends DeleteArea implements IAutoHideable
      *     is registered for that type.
      */
     protected getInflaterForType(type: string): IFlyoutInflater | null;
-    /** See IFocusableNode.getFocusableElement. */
+    /**
+     * See IFocusableNode.getFocusableElement.
+     *
+     * @deprecated v12: Use the Flyout's workspace for focus operations, instead.
+     */
     getFocusableElement(): HTMLElement | SVGElement;
-    /** See IFocusableNode.getFocusableTree. */
+    /**
+     * See IFocusableNode.getFocusableTree.
+     *
+     * @deprecated v12: Use the Flyout's workspace for focus operations, instead.
+     */
     getFocusableTree(): IFocusableTree;
     /** See IFocusableNode.onNodeFocus. */
     onNodeFocus(): void;
@@ -411,17 +419,37 @@ export declare abstract class Flyout extends DeleteArea implements IAutoHideable
     onNodeBlur(): void;
     /** See IFocusableNode.canBeFocused. */
     canBeFocused(): boolean;
-    /** See IFocusableTree.getRootFocusableNode. */
+    /**
+     * See IFocusableNode.getRootFocusableNode.
+     *
+     * @deprecated v12: Use the Flyout's workspace for focus operations, instead.
+     */
     getRootFocusableNode(): IFocusableNode;
-    /** See IFocusableTree.getRestoredFocusableNode. */
+    /**
+     * See IFocusableNode.getRestoredFocusableNode.
+     *
+     * @deprecated v12: Use the Flyout's workspace for focus operations, instead.
+     */
     getRestoredFocusableNode(_previousNode: IFocusableNode | null): IFocusableNode | null;
-    /** See IFocusableTree.getNestedTrees. */
+    /**
+     * See IFocusableNode.getNestedTrees.
+     *
+     * @deprecated v12: Use the Flyout's workspace for focus operations, instead.
+     */
     getNestedTrees(): Array<IFocusableTree>;
-    /** See IFocusableTree.lookUpFocusableNode. */
+    /**
+     * See IFocusableNode.lookUpFocusableNode.
+     *
+     * @deprecated v12: Use the Flyout's workspace for focus operations, instead.
+     */
     lookUpFocusableNode(_id: string): IFocusableNode | null;
     /** See IFocusableTree.onTreeFocus. */
     onTreeFocus(_node: IFocusableNode, _previousTree: IFocusableTree | null): void;
-    /** See IFocusableTree.onTreeBlur. */
-    onTreeBlur(nextTree: IFocusableTree | null): void;
+    /**
+     * See IFocusableNode.onTreeBlur.
+     *
+     * @deprecated v12: Use the Flyout's workspace for focus operations, instead.
+     */
+    onTreeBlur(_nextTree: IFocusableTree | null): void;
 }
 //# sourceMappingURL=flyout_base.d.ts.map

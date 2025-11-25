@@ -6,7 +6,7 @@
 import * as browserEvents from '../browser_events.js';
 import { DeleteArea } from '../delete_area.js';
 import '../events/events_toolbox_item_select.js';
-import type { IAutoHideable } from '../interfaces/i_autohideable.js';
+import { type IAutoHideable } from '../interfaces/i_autohideable.js';
 import type { IDraggable } from '../interfaces/i_draggable.js';
 import type { IFlyout } from '../interfaces/i_flyout.js';
 import type { IFocusableNode } from '../interfaces/i_focusable_node.js';
@@ -412,6 +412,6 @@ export declare class Toolbox extends DeleteArea implements IAutoHideable, IKeybo
     /** See IFocusableTree.onTreeFocus. */
     onTreeFocus(node: IFocusableNode, _previousTree: IFocusableTree | null): void;
     /** See IFocusableTree.onTreeBlur. */
-    onTreeBlur(_nextTree: IFocusableTree | null): void;
+    onTreeBlur(nextTree: IFocusableTree | null): void;
 }
 //# sourceMappingURL=toolbox.d.ts.map

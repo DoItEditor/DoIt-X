@@ -1,0 +1,34 @@
+{
+    "en":{
+        "file":"File",
+        "edit":"Edit",
+        "help":"Help",
+        "new":"New",
+        "save code":"Save Code",
+        "save as XML":"Save as XML",
+        "open XML":"Open XML",
+        "save as folder":"Save as Folder",
+        "open folder":"Open Folder",
+        "day mode":"Day Mode",
+        "night mode":"Night Mode",
+        "preference":"Preference",
+        "feedback":"Feedback",
+        "about":"About"
+    },
+    "zh-hans":{
+        "file":"文件",
+        "edit":"编辑",
+        "help":"帮助",
+        "new":"新建",
+        "save code":"保存代码文件",
+        "save as XML":"保存为XML文件",
+        "open XML":"打开XML文件",
+        "save as folder":"保存为文件夹",
+        "open folder":"打开文件夹",
+        "day mode":"日间模式",
+        "night mode":"夜间模式",
+        "preference":"偏好设置",
+        "feedback":"反馈",
+        "about":"About"
+    }
+}

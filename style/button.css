@@ -12,14 +12,15 @@
 
 /* 按钮图标样式 */
 .button-icon {
-    height: 16px;
+    height: 20px;
     width: auto;
-    margin-right: 5px;
+    margin-right: 0px;
 }
 
 /* 按钮文本样式 */
 .button-text {
     font-size: 14px;
+    margin-left: 0px;
 }
 
 /* 悬停效果 - 改变容器大小 */

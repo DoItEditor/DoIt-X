@@ -27,17 +27,28 @@ document.addEventListener('DOMContentLoaded', function() {
     ]);
     allMenus.push(editMenu);
 
+    const helpMenu = createMenu([
+        { id: 'feedback' , text: '反馈'},
+        { separator: true },
+        { id: 'about', text: '关于' },
+    ]);
+    allMenus.push(helpMenu);
+
+
     // 为按钮添加点击事件
     attachMenuToButton(fileButton, fileMenu, allMenus);
     attachMenuToButton(editButton, editMenu, allMenus);
+    attachMenuToButton(helpButton, helpMenu, allMenus);
 
     // 点击页面其他地方关闭菜单
     document.addEventListener('click', function(event) {
         // 检查点击是否发生在任何按钮或菜单外部
         const isClickOutsideButtonsAndMenus = !fileButton.contains(event.target) && 
                                              !editButton.contains(event.target) &&
+                                             !helpButton.contains(event.target) &&
                                              !fileMenu.contains(event.target) && 
-                                             !editMenu.contains(event.target);
+                                             !editMenu.contains(event.target) &&
+                                             !helpMenu.contains(event.target);
 
         if (isClickOutsideButtonsAndMenus) {
             // 关闭所有菜单
@@ -163,6 +174,14 @@ function handleMenuItemClick(menuId) {
         case 'preferences':
             // 实现首选项功能
             console.log('打开首选项设置');
+            break;
+        case 'feedback':
+            // 实现反馈功能
+            console.log('打开反馈设置');
+            break;
+        case 'about':
+            // 实现关于功能
+            console.log('打开关于设置');
             break;
         default:
             console.log('未知菜单项id:', menuId);

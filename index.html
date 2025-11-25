@@ -7,15 +7,21 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/dialogs.css">
     <link rel="stylesheet" href="style/button.css">
-
-    <!--导入自定义弹窗-->
-    <script src="script/customDialogs.js"></script>
+    <link rel="stylesheet" href="style/flyout-button.css">
 
     <!--导入Blockly库-->
     <script src="blockly-lib/blockly_compressed.js"></script>
     <script src="blockly-lib/blocks_compressed.js"></script>
-    <script src="blockly-lib/python_compressed.js"></script>
+    <script src="blockly-lib/python_compressed.js"></script>   
+
+    <!--导入自定义弹窗-->
+    <script src="script/customDialogs.js"></script>
+
     <script src="blockly-lib/msg/zh-hans.js"></script>
+    <!-- <script src="blockly-lib/msg/en.js"></script> -->
+
+    <!--尝试制作本地化-->
+    <script src="script/l10n.js"></script>
 
     <!--导入对Blockly内容的自定义-->
     <link rel="stylesheet" href="style/blockly-context-menu.css">
@@ -23,7 +29,7 @@
 </head>
 <body>
     <div id="topBar">
-        <img src="asset/logo.svg" alt="DoIt!X" style="height:30px;width:auto;margin-right:6px;">
+        <img src="asset/logo.svg" alt="DoIt!X" style="height:30px;width:auto;margin-right:6px;" onclick="window.location.href='https:\/\/doit.cyberneko.cn'">
         <div id="fileButton" class="top-bar-button">
             <img src="asset/file-icon.svg" alt="文件" class="button-icon">
             <span class="button-text">文件</span>
@@ -32,16 +38,19 @@
             <img src="asset/edit-icon.svg" alt="编辑" class="button-icon">
             <span class="button-text">编辑</span>
         </div>
+        <div id="helpButton" class="top-bar-button">
+            <img src="asset/help-icon.svg" alt="帮助" class="button-icon">
+            <span class="button-text">帮助</span>
+        </div>
     </div>
 
     <div id="mainContainer">
         <div id="blocklyDiv"></div>
-        <div id="codeOutput"></div>
+        <div id="codeOutput" style="height: 100%;width: 480px"></div>
     </div>
     
     <xml id="toolbox">
-        <category name="控制" categorystyle="logic_category">
-            <label text="循环"></label>
+        <category name="控制" colour="120">
             <block type="controls_repeat_ext"></block>
             <block type="controls_repeat"></block>
             <block type="controls_whileUntil"></block>
@@ -56,8 +65,8 @@
             <block type="controls_if"></block>
             <block type="controls_ifelse"></block>
         </category>
-        <category name="变量" custom="VARIABLE" categorystyle="variable_category"></category>
-        <category name="自制积木"  custom="PROCEDURE" categorystyle="procedure_category" data-category="自制积木"></category>
+        <category name="变量" custom="VARIABLE"></category>
+        <category name="函数" custom="PROCEDURE"></category>
     </xml>
     
     <script src="script/main.js"></script>

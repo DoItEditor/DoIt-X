@@ -55,6 +55,7 @@ export declare class FocusManager {
     private currentlyHoldsEphemeralFocus;
     private lockFocusStateChanges;
     private recentlyLostAllFocus;
+    private isUpdatingFocusedNode;
     constructor(addGlobalEventListener: (type: string, listener: EventListener) => void);
     /**
      * Registers a new IFocusableTree for automatic focus management.
@@ -66,14 +67,30 @@ export declare class FocusManager {
      * This function throws if the provided tree is already currently registered
      * in this manager. Use isRegistered to check in cases when it can't be
      * certain whether the tree has been registered.
+     *
+     * The tree's registration can be customized to configure automatic tab stops.
+     * This specifically provides capability for the user to be able to tab
+     * navigate to the root of the tree but only when the tree doesn't hold active
+     * focus. If this functionality is disabled then the tree's root will
+     * automatically be made focusable (but not tabbable) when it is first focused
+     * in the same way as any other focusable node.
+     *
+     * @param tree The IFocusableTree to register.
+     * @param rootShouldBeAutoTabbable Whether the root of this tree should be
+     *     added as a top-level page tab stop when it doesn't hold active focus.
      */
-    registerTree(tree: IFocusableTree): void;
+    registerTree(tree: IFocusableTree, rootShouldBeAutoTabbable?: boolean): void;
     /**
      * Returns whether the specified tree has already been registered in this
      * manager using registerTree and hasn't yet been unregistered using
      * unregisterTree.
      */
     isRegistered(tree: IFocusableTree): boolean;
+    /**
+     * Returns the TreeRegistration for the specified tree, or null if the tree is
+     * not currently registered.
+     */
+    private lookUpRegistration;
     /**
      * Unregisters a IFocusableTree from automatic focus management.
      *
@@ -82,6 +99,9 @@ export declare class FocusManager {
      *
      * This function throws if the provided tree is not currently registered in
      * this manager.
+     *
+     * This function will reset the tree's root element tabindex if the tree was
+     * registered with automatic tab management.
      */
     unregisterTree(tree: IFocusableTree): void;
     /**
@@ -132,6 +152,9 @@ export declare class FocusManager {
      * canBeFocused() method returns false), it will be ignored and any existing
      * focus state will remain unchanged.
      *
+     * Note that this may update the specified node's element's tabindex to ensure
+     * that it can be properly read out by screenreaders while focused.
+     *
      * @param focusableNode The node that should receive active focus.
      */
     focusNode(focusableNode: IFocusableNode): void;
@@ -154,6 +177,10 @@ export declare class FocusManager {
      * simultaneously will result in an error being thrown).
      */
     takeEphemeralFocus(focusableElement: HTMLElement | SVGElement): ReturnEphemeralFocus;
+    /**
+     * @returns whether something is currently holding ephemeral focus
+     */
+    ephemeralFocusTaken(): boolean;
     /**
      * Ensures that the manager is currently allowing operations that change its
      * internal focus state (such as via focusNode()).
